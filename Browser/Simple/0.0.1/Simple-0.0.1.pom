@@ -4,6 +4,7 @@
 	<groupId>Browser</groupId>
 	<artifactId>Simple</artifactId>
 	<version>0.0.1</version>
+
 	<name>Simple-Browser</name>
 
 
@@ -32,13 +33,77 @@
 		<dependency>
 			<groupId>HTML</groupId>
 			<artifactId>Parser</artifactId>
-			<version>0.0.4</version> 
- 		</dependency>
+			<version>0.0.4</version>
+		</dependency>
 
 	</dependencies>
 
 	<build>
 		<plugins>
+
+<!-- 
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.4</version>
+				<configuration>
+					<archive>
+						<index>true</index>
+						<manifest>
+							<addClasspath>true</addClasspath>
+							<mainClass>browse.html.HtmlBrowser</mainClass>
+							<classpathPrefix>lib/</classpathPrefix>
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>
+					2.0 
+				</version>
+				<executions>
+					<execution>
+						<id>copy-dependencies</id>
+						<phase>install</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}/lib/</outputDirectory>
+						</configuration>
+
+					</execution>
+				</executions>
+			</plugin>
+ 
+--> 
+ 
+<plugin>
+  <groupId>org.apache.maven.plugins</groupId>
+  <artifactId>maven-assembly-plugin</artifactId>
+  <executions>
+    <execution>
+      <id>create-my-bundle</id>
+      <phase>package</phase>
+      <goals>
+        <goal>single</goal>
+      </goals>
+      <configuration>
+        <descriptorRefs>
+          <descriptorRef>jar-with-dependencies</descriptorRef>
+        </descriptorRefs>
+         <archive>
+      <manifest>
+        <mainClass>browse.html.HtmlBrowser</mainClass>
+      </manifest>
+    </archive>
+      </configuration>
+    </execution>
+  </executions>
+</plugin>
 
 			<plugin>
 				<groupId>com.github.github</groupId>
