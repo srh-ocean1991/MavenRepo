@@ -14,18 +14,8 @@
 	<version>0.0.2</version>
 
 	<name>Simple-Browser</name>
+ 
 
-	  <repositories>
-		<repository>
-			<id>MavenRepo-mvn-repo</id>
-			<url>https://github.com/srh-ocean1991/MavenRepo/raw/mvn-repo</url>
-
-			<snapshots>
-				<enabled>true</enabled>
-				<updatePolicy>always</updatePolicy>
-			</snapshots>
-		</repository>
-	</repositories>  
 
 
 	<dependencies> 
@@ -78,6 +68,7 @@
 				</executions>
 			</plugin>
 
+				 
 
 			<plugin >
 			  <groupId>org.apache.maven.plugins</groupId>
@@ -164,14 +155,6 @@
 		</plugins>
 
 	</build>
-
-	<distributionManagement>
-		<repository>
-			<id>github</id>
-			<name>GitHub ${project.artifactId} Repository</name>
-			<url>https://raw.github.com/srh-ocean1991/${project.artifactId}/mvn-repo</url>
-		</repository>
-	</distributionManagement>
-
+ 
 
 </project>
