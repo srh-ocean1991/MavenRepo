@@ -3,10 +3,9 @@
   <groupId>Browser</groupId>
   <artifactId>Simple</artifactId>
   <versioning>
-    <release>0.0.3</release>
     <versions>
-      <version>0.0.3</version>
+      <version>0.0.3-SNAPSHOT</version>
     </versions>
-    <lastUpdated>20130715183620</lastUpdated>
+    <lastUpdated>20130720181452</lastUpdated>
   </versioning>
 </metadata>
