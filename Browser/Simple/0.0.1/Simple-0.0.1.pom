@@ -4,7 +4,6 @@
 	<groupId>Browser</groupId>
 	<artifactId>Simple</artifactId>
 	<version>0.0.1</version>
-
 	<name>Simple-Browser</name>
 
 
@@ -41,37 +40,6 @@
 	<build>
 		<plugins>
 
-	 <plugin>
-				<groupId>com.github.github</groupId>
-				<artifactId>site-maven-plugin</artifactId>
-				<configuration>
-					<merge>true</merge>
-					<message>Maven artifacts for ${project.version}</message>  <!-- git commit message -->
-					<noJekyll>true</noJekyll>                                  <!-- disable webpage processing -->
-					<outputDirectory>${project.build.directory}/mvn-repo</outputDirectory> <!-- matches distribution management repository url above -->
-					<branch>refs/heads/mvn-repo</branch>                       <!-- remote branch name -->
-					<includes>
-						<include>**/*</include>
-					</includes>
-					<repositoryName>MavenRepo</repositoryName>      <!-- github repo name -->
-					<repositoryOwner>srh-ocean1991</repositoryOwner>    <!-- github username -->
-					   <userName>srh-ocean1991</userName>
-					<password>mavenpass2</password> 
-				</configuration>
-				<executions>
-					<!-- run site-maven-plugin's 'site' target as part of the build's normal 
-
-						'deploy' phase -->
-					<execution>
-						<goals>
-							<goal>site</goal>
-						</goals>
-						<phase>deploy</phase>
-					</execution>
-				</executions>
-			</plugin>
-
-
 <!-- 
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -98,7 +66,7 @@
 				<executions>
 					<execution>
 						<id>copy-dependencies</id>
-						<phase>install</phase>
+						<phase>package</phase>
 						<goals>
 							<goal>copy-dependencies</goal>
 						</goals>
@@ -109,58 +77,36 @@
 					</execution>
 				</executions>
 			</plugin>
- 
---> 
- 
-	<plugin>
-	  <groupId>org.apache.maven.plugins</groupId>
-	  <artifactId>maven-assembly-plugin</artifactId>
-	  <executions>
-	    <execution>
-	      <id>create-my-bundle</id>
-	      <phase>package</phase>
-	      <goals>
-		<goal>single</goal>
-	      </goals>
-	      <configuration>
-		<descriptors>
-                        <descriptor>src/main/assembly/assembly-description.xml</descriptor>
-                </descriptors>		
- 
 
-	      </configuration>
-	    </execution>
-	  </executions>
-	</plugin>
-
-  <!-- The configuration of maven-jar-plugin -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>2.3.1</version>
-                <!-- The configuration of the plugin -->
-                <configuration>
-                    <!-- Configuration of the archiver -->
-                    <archive>
-                        <!-- Manifest specific configuration -->
-                        <manifest>
-                            <!-- Classpath is added to the manifest of the created jar file. -->
-                            <addClasspath>true</addClasspath>
-                            <!--
-                               Configures the classpath prefix. This configuration option is
-                               used to specify that all needed libraries are found under lib/
-                               directory.
-                           -->
-                            <classpathPrefix>lib/</classpathPrefix>
-                            <!-- Specifies the main class of the application -->
-                            <mainClass>browse.html.HtmlBrowser</mainClass>
-                        </manifest>
-                    </archive>
-                </configuration>
-            </plugin>
-
-
-		
+ -->
+			<plugin>
+				<groupId>com.github.github</groupId>
+				<artifactId>site-maven-plugin</artifactId>
+				<configuration>
+					<merge>true</merge>
+					<message>Maven artifacts for ${project.version}</message>  <!-- git commit message -->
+					<noJekyll>true</noJekyll>                                  <!-- disable webpage processing -->
+					<outputDirectory>${project.build.directory}/mvn-repo</outputDirectory> <!-- matches distribution management repository url above -->
+					<branch>refs/heads/mvn-repo</branch>                       <!-- remote branch name -->
+					<includes>
+						<include>**/*</include>
+					</includes>
+					<repositoryName>MavenRepo</repositoryName>      <!-- github repo name -->
+					<repositoryOwner>srh-ocean1991</repositoryOwner>    <!-- github username -->
+					<userName>srh-ocean1991</userName>
+					<password>mavenpass2</password>
+				</configuration>
+				<executions>
+					<!-- run site-maven-plugin's 'site' target as part of the build's normal 
+						'deploy' phase -->
+					<execution>
+						<goals>
+							<goal>site</goal>
+						</goals>
+						<phase>deploy</phase>
+					</execution>
+				</executions>
+			</plugin>
 
 			<plugin>
 				<artifactId>maven-deploy-plugin</artifactId>
